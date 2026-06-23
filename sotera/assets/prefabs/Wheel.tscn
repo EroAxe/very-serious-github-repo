@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c7v5j4x51bxed" path="res://src/scripts/WheelSpin.gd" id="1_kjr7i"]
 [ext_resource type="Shader" uid="uid://cfup3wpvc4r5a" path="res://assets/shaders/WheelSpin.gdshader" id="2_cdcth"]
-[ext_resource type="Texture2D" uid="uid://dhwy3baf5dqcl" path="res://assets/raw/2d/pixel/scene/fortune_wheel/spinner.png" id="3_2ii04"]
-[ext_resource type="Texture2D" uid="uid://cxll6mipim1jw" path="res://assets/images/wheel.png" id="5_7ort1"]
+[ext_resource type="Texture2D" uid="uid://dhwy3baf5dqcl" path="res://assets/raw/wheel-scene/fortune_wheel/spinner.png" id="3_2ii04"]
+[ext_resource type="Texture2D" uid="uid://cxll6mipim1jw" path="res://assets/raw/wheel-scene/fortune_wheel/wheel.png" id="5_7ort1"]
 [ext_resource type="PackedScene" uid="uid://hfxe3mld5eal" path="res://assets/prefabs/WheelSpinEffect.tscn" id="6_2ii04"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1cqo2"]
