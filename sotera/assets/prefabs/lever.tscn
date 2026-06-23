@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dlx27g1p310r8" path="res://assets/images/lever.png" id="3_ic5fi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wldyw"]
-radius = 376.17075
+radius = 229.9793
 
 [node name="Lever" type="Node2D" unique_id=1796701312]
 script = ExtResource("1_wldyw")
