@@ -36,6 +36,12 @@ func _process(delta: float) -> void:
 
 		offset += speed_multiplier;
 		offset = fmod(offset, 1.0);
+		if (spin_time - elapsed_spin_time < (spin_time * 0.25)):
+			if ($WheelSpinEffect.state != $WheelSpinEffect.WheelPEState.SPEED_DOWN_TRANSITION):
+				print($WheelSpinEffect.state)
+				$WheelSpinEffect.start_slowdown()
+			if ($WheelSpinEffect2.state != $WheelSpinEffect2.WheelPEState.SPEED_DOWN_TRANSITION):
+				$WheelSpinEffect2.start_slowdown()
 	else:
 		stop_spinning()
 
@@ -49,27 +55,15 @@ func _input(event):
 		start_spinning()
 
 func start_spinning():
-	if state == WHEELSTATE.IDLE:
-		state = WHEELSTATE.SPINNING
-		spin_speed = RandUtils.randf_range(min_speed, max_speed)
-		spin_time = RandUtils.randf_range(min_time,max_time)
-		elapsed_spin_time = 0
+	state = WHEELSTATE.SPINNING
+	spin_speed = RandUtils.randf_range(min_speed, max_speed)
+	spin_time = RandUtils.randf_range(min_time, max_time)
+	elapsed_spin_time = 0
 
-		$WheelSpinEffect.start_speedup()
-		$WheelSpinEffect2.start_speedup()
-
+	$WheelSpinEffect.start_speedup()
+	$WheelSpinEffect2.start_speedup()
+		
 func stop_spinning() -> void:
-	if state == WHEELSTATE.SPINNING:
-		state = WHEELSTATE.MOVING_TO_VALUE
-		$WheelSpinEffect.start_slowdown()
-		$WheelSpinEffect2.start_slowdown()
-	elif state == WHEELSTATE.MOVING_TO_VALUE:
-		# Somehow, use this value to move the box to center
-		#offset = lerp(offset, single_value_height_in_texture * (value_idx), 0.9)
-
-		#print(offset, " ", value_idx)
-		#print(single_value_height_in_texture * value_idx)
-		print(items[value_idx])
-
-		#if abs(offset - single_value_height_in_texture * (value_idx)) <= 0.2:
-		state = WHEELSTATE.IDLE
+	state = WHEELSTATE.IDLE
+	$WheelSpinEffect.start_slowdown()
+	$WheelSpinEffect2.start_slowdown()
