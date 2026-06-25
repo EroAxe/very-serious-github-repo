@@ -8,7 +8,6 @@ class_name BulletHellCharacter
 
 @onready var hp = maxHp
 @onready var animations: AnimatedSprite2D = $Animations
-@onready var footsteps: AudioStreamPlayer2D = $Footsteps
 
 var currentiFrames: int = 0
 var mousePos: Vector2
@@ -91,9 +90,9 @@ func _physics_process(_delta):
 
 #frame perfect / footsteps
 func _on_animations_frame_changed():
-	if $Animations.animation in ["forwardrun", "leftrun", "rightrun", "backrun"]:
+	if $Animations.animation in ["forwardrun", "leftrun", "rightrun", "backrun", "forwardrun_reverse", "leftrun_reverse", "rightrun_reverse", "backrun_reverse"]:
 		if $Animations.frame in [0, 4]:
-			SoundPool.play_random_shuffled_sound(SoundPool.PLAYER_FOOTSTEPS) # TODO: if time, make custom footstep groups for each scene
+			SoundPool.play_random_shuffled_sound(SoundPool.PLAYER_FOOTSTEPS)
 
 		
 func takeDamage(damage:int) -> void:
@@ -105,5 +104,6 @@ func takeDamage(damage:int) -> void:
 	if hp <= 0:
 		#Minigame over
 		print("Player Dead")
+		SoundPool.play_sound(SoundPool.MINIGAME_FAIL)
 		takeDamage(0) #crashing the game on death for funsies	
 	

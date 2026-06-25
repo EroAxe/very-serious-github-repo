@@ -54,6 +54,7 @@ func _process(delta: float) -> void:
 func _input(event):
 	if event.is_action_pressed("interact"):
 		start_spinning()
+		SoundPool.play_sound(SoundPool.LEVER_PULL)
 
 func start_spinning():
 	state = WHEELSTATE.SPINNING
@@ -70,6 +71,8 @@ func start_spinning():
 	await get_tree().create_timer(spin_time * 0.45).timeout
 	
 	SoundPool.play_sound(SoundPool.WHEEL_STOP)
+	
+	SoundPool.play_sound(SoundPool.AUDIENCE_CHEER)
 	
 func stop_spinning() -> void:
 	state = WHEELSTATE.IDLE
