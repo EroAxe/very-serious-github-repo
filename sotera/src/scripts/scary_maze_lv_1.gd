@@ -47,6 +47,9 @@ func _on_exit_area_body_entered(body: CharacterBody2D) -> void:
 	static_anim.play("play_static")
 	await static_anim.animation_finished
 	
+	# Damage
+	Globals.take_damage()
+	
 	# Reset player state and level
 	player.visible = true
 	player.process_mode = Node.PROCESS_MODE_INHERIT
