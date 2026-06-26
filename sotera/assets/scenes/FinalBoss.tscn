@@ -101,7 +101,6 @@ script = ExtResource("2_k525x")
 question = "What is the grand prize of Wheel of Damnation?"
 option_a = "Wealth"
 option_b = "Fame"
-option_c = "Freedom"
 option_d = "Survival"
 metadata/_custom_type_script = "uid://d2qode13dvwob"
 
@@ -250,6 +249,7 @@ player_damage = 1
 questions = Array[ExtResource("2_k525x")]([SubResource("Resource_k525x"), SubResource("Resource_jil5c"), SubResource("Resource_vkukm"), SubResource("Resource_8xf35"), SubResource("Resource_3etcb"), SubResource("Resource_1hrp2"), SubResource("Resource_u6exl"), SubResource("Resource_klscq"), SubResource("Resource_05l7r"), SubResource("Resource_mha1t")])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1195852189]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
